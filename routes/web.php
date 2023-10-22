@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SliderController;
@@ -38,3 +39,12 @@ Route::get('myProfile',[UserController::class,'profile'])->name('users.profile')
 // ------------------------ Contact -------------------- //
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('sendEmail');
+
+
+// --------------------- social login ------------------ //
+Route::get('/auth/redirect', [SocialController::class,'redirectToGithub']);
+Route::get('/auth/callback', [SocialController::class,'handleGithubCallback']);
+
+Route::get('/auth/google', [SocialController::class,'redirectToGoogle']);
+Route::get('/auth/google/callback', [SocialController::class,'handleGoogleCallback']);
+

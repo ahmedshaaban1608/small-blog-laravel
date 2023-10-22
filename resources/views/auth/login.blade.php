@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                  <div class="d-flex justify-content-center mb-3">
+                  <a href="/auth/redirect" class="btn btn-outline-primary me-3">Signin with Github</a>
+                    <a href="/auth/google" class="btn btn-outline-primary">Signin with Google</a>
+                  </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
